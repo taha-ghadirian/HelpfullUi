@@ -1,0 +1,27 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<MudLayout>
+    <ApplicationHeader/>
+    
+    @if (IsUserAuthenticated)
+    {
+        <NavMenu @bind-IsMenuOpen=IsMenuOpen/>
+    }
+    
+    <div class="Header-Block">
+        <div class="main @(IsUserAuthenticated ? "main--authenticated" : null)">
+            <div class="main-content">
+                <AppErrorBoundary>
+                    @Body
+                </AppErrorBoundary>
+            </div>
+            <ApplicationFooter/>
+        </div>
+
+        <MessageBox/>
+    </div>
+</MudLayout>

@@ -1,0 +1,22 @@
+﻿@inherits AppComponentBase;
+
+<MudAppBar Color="Color.Primary" Fixed="true" Dense="true">
+    @if (IsUserAuthenticated)
+    {
+        <MudHidden Breakpoint="Breakpoint.MdAndUp">
+            <MudIconButton Icon="@Icons.Filled.Menu" OnClick="ToggleMenu"/>
+        </MudHidden>
+    }
+    <a class="logo-lnk" href="/"></a>
+    <MudSpacer/>
+    <MudLink Href="/privacy" Target="_self">@Localizer[nameof(AppStrings.Privacy)]</MudLink>
+    @if (!IsUserAuthenticated)
+    {
+        <MudButton Href="/sign-up" Target="_self" Variant="Variant.Text" StartIcon="@Icons.Filled.Login" Color="Color.Secondary">
+            @Localizer[nameof(AppStrings.SignUp)]
+        </MudButton>
+        <MudButton Href="/sign-in" Target="_self" Variant="Variant.Text" StartIcon="@Icons.Filled.AppRegistration" Color="Color.Secondary">
+            @Localizer[nameof(AppStrings.SignIn)]
+        </MudButton>
+    }
+</MudAppBar>

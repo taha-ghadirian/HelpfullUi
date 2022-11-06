@@ -1,0 +1,42 @@
+﻿@inherits AppComponentBase;
+
+<MudDrawer @bind-Open="isMenuOpen" Elevation="1" Variant="@DrawerVariant.Mini" OpenMiniOnHover="true" ClipMode="DrawerClipMode.Always">
+    
+    <MudDrawerHeader>
+        <MudText Typo="Typo.h6">My App</MudText>
+    </MudDrawerHeader>
+    <MudNavMenu>
+        <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Filled.Home" Href="/">Home</MudNavLink>
+        <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Filled.DoneOutline" Href="/todo">Todo</MudNavLink>
+        <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Filled.Logout"></MudNavLink>
+    </MudNavMenu>
+</MudDrawer>
+
+
+@* *@
+@* @if (IsMenuOpen) *@
+@* { *@
+@*     <div class="menu-shadow" @onclick=CloseMenu></div> *@
+@* } *@
+@* *@
+@* <section class="main-container @(IsMenuOpen ? null : "main-container--closed")"> *@
+@*     <div class="top-container"> *@
+@*         <BitPersona ImageUrl="@ProfileImageUrl" *@
+@*                     Size=@BitPersonaSize.Size48 *@
+@*                     Text="@User?.FullName" *@
+@*                     SecondaryText="@User?.UserName" *@
+@*                     Presence="BitPersonaPresenceStatus.Online" /> *@
+@*         <BitActionButton IconName="BitIconName.Edit" *@
+@*                          Href="/edit-profile" *@
+@*                          OnClick=CloseMenu> *@
+@*             @Localizer[nameof(AppStrings.EditProfileTitle)] *@
+@*         </BitActionButton> *@
+@*     </div> *@
+@*     <BitNav NavLinkItems="NavLinks" *@
+@*             AriaLabel="NavMenu" *@
+@*             SelectedKey="Home" *@
+@*             OnLinkClick=CloseMenu> *@
+@*     </BitNav> *@
+@* </section> *@
+@* *@
+@* <SignOutConfirmModal @bind-IsOpen=IsSignOutModalOpen></SignOutConfirmModal> *@
